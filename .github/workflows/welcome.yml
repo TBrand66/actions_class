@@ -10,6 +10,8 @@ jobs:
         steps:
             - name: "Greeting step"
               run: echo "Push the code"
+            - name: confirm the repository of Docker Hub
+              uses: actions/checkout@v4
             - name: Logging into Docker Hub
               uses: docker/login-action@v3
               with:
