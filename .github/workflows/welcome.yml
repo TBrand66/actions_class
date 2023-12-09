@@ -16,4 +16,12 @@ jobs:
               uses: docker/login-action@v3
               with:
                 username: ${{ secrets.DOCKERHUB_USERNAME }}
-                password: ${{ secrets.DOCKERHUB_PASSWORD }}
+                password: ${{ secrets.DOCKERHUB_PASSWORD }} 
+            - name: "Build the image for the App"
+              env:
+                  IMAGE_NAME: worklows1
+                  VERSION: latest
+                  USERNAME: abatan
+              run: |
+                    docker build -t $USERNAME/$IMAGE_NAME:$VERSION .
+                    docker push $USERNAME/$IMAGE_NAME:$VERSION
